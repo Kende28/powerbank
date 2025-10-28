@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="hu">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,10 +15,23 @@
       crossorigin="anonymous"
     ></script>
     <title><%= title%></title>
+    <style>
+      .link{
+        color: white;
+        font-weight: bold;
+        font-family: cooper;
+      }
+    </style>
   </head>
   <body>
-    <div class="container col-sm6">
-      <header class="row col-sm-12">
+    <div class="container">
+      <div class="flex-row justify-content-center" style="background-color: gray;">
+        <a class="link" href="/addpb">addPB</a>
+        <a class="link" href="/deletepb">removePB</a>
+        <a class="link" href="/modifypb">modifyPB</a>
+        <a class="link" href="/readme">readMe</a>
+      </div>
+      <header class="row col-sm-6">
         <h2><%= title %></h2>
       </header>
       <table class="table table-bordered">
@@ -47,6 +60,11 @@
             <% } %>
         </tbody>
       </table>
+    </div>
+    <div class="container">
+      <footer class="d-flex ">
+        <p>Made by: Yamakawa Kende</p>
+      </footer>
     </div>
   </body>
 </html>
