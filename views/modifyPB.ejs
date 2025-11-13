@@ -39,14 +39,10 @@
         <table>
           <tr>
             <td>
-              <label for="id">Select id:</label>
+              <label>Id:</label>
             </td>
             <td>
-              <select name="id" id="id">
-                <% for(const pb of powerbanks) { %>
-                    <option value="<%= pb.id %>"><%= pb.id%></option>
-                <% } %>
-              </select>
+              <%= powerbank.id %>
             </td>
           </tr>
           <tr>
@@ -54,21 +50,21 @@
               <label for="name">Name:</label>
             </td>
             <td>
-              <input type="text" name="name" id="name" >
+              <input type="text" name="name" id="name" value="<%= powerbank.name %>" >
             </td>
           </tr>
           <tr>
             <td>
               <label for="brand">Brand:</label>
             </td>
-            <td><input type="text" name="brand" id="brand" /></td>
+            <td><input type="text" name="brand" id="brand" value="<%= powerbank.brand %>"/></td>
           </tr>
           <tr>
             <td>
               <label for="battery_time">Battery time(h):</label>
             </td>
             <td>
-              <input type="number" name="battery_time" id="battery_time" />
+              <input type="number" name="battery_time" id="battery_time" value="<%= powerbank.battery_time %>"/>
             </td>
           </tr>
           <tr>
@@ -78,19 +74,20 @@
                 type="number"
                 name="charge_duration"
                 id="charge_duration"
+                value="<%= powerbank.charge_duration %>"
               /><br />
             </td>
           </tr>
           <tr>
             <td><label for="cost">Cost(Ft):</label></td>
-            <td><input type="number" name="cost" id="cost" /><br /></td>
+            <td><input type="number" name="cost" id="cost" value="<%= powerbank.cost %>"/><br /></td>
           </tr>
           <tr>
             <td><label for="available">Available:</label></td>
             <td>
               <select name="available">
-                <option value="1">Available</option>
-                <option value="0">Unavailable</option>
+                <option value="1" <%= powerbank.available ? 'selected' : '' %>>Available</option>
+                <option value="0" <%= !powerbank.available ? 'selected' : '' %>>Unavailable</option>
               </select>
             </td>
           </tr>

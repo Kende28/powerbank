@@ -16,6 +16,12 @@ export class AppService {
     return result as Powerbank[];
   }
 
+  async getPowerbank(id: number): Promise<Powerbank> {
+    const [result] = await this.db.query(`SELECT id, name, brand, battery_time, charge_duration, cost, available FROM powerbanks`);
+    const powerbanks: Powerbank[] = result as Powerbank[];
+    return powerbanks[id]
+  }
+
   async createPowerbank(powerbank: Powerbank): Promise<void> {
     const query = `INSERT INTO powerbanks (name, brand, battery_time, charge_duration, cost, available) VALUES (?, ?, ?, ?, ?, ?)`
     const param = [powerbank.name, powerbank.brand, powerbank.battery_time, powerbank.charge_duration, powerbank.cost, powerbank.available]

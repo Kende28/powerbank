@@ -28,7 +28,6 @@
       <div class="flex-row justify-content-center" style="background-color: gray;">
         <a class="link" href="/addpb">addPB</a>
         <a class="link" href="/deletepb">removePB</a>
-        <a class="link" href="/modifypb">modifyPB</a>
         <a class="link" href="/readme">readMe</a>
       </div>
       <header class="row col-sm-6">
@@ -56,6 +55,13 @@
                     <td><%= powerbank.charge_duration %></td>
                     <td><%= powerbank.cost %></td>
                     <td><%= powerbank.available ? "Available" : "Unavailable" %></td>
+                    <td>
+                      <a href="/modifypb/<%= powerbank.id %>">
+                        <span>
+                          ⚙️
+                        </span>
+                      </a>
+                    </td>
                 </tr>
             <% } %>
         </tbody>

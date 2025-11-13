@@ -3,10 +3,12 @@ import {
   Controller,
   Delete,
   Get,
+  Param,
   Post,
   Put,
   Redirect,
   Render,
+  Req,
   Res,
 } from '@nestjs/common';
 import { AppService } from './app.service';
@@ -59,11 +61,11 @@ export class AppController {
     await this.appService.deletePowerbank(powerbank.id);
   }
 
-  @Get('/modifypb')
+  @Get('/modifypb/:id')
   @Render('modifyPB')
-  async getModifyPBForm() {
-    const powerbanks = await this.appService.getList();
-    return { title: 'Modify powerbank', powerbanks: powerbanks };
+  async getModifyPBForm(@Param('id') id: number) {
+    const powerbank = await this.appService.getPowerbank(id-1);
+    return { title: 'Modify powerbank', powerbank: powerbank};
   }
 
   @Post('/modifypb')
